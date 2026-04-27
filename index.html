@@ -19,7 +19,7 @@ scroll-behavior:smooth;
 }
 
 body{
-font-family:'Inter', Arial, Helvetica, sans-serif;
+font-family:'Inter',Arial,sans-serif;
 background:
 radial-gradient(circle at top, rgba(0,180,255,0.18), transparent 35%),
 linear-gradient(180deg,#03050a,#09111b,#03050a);
@@ -42,7 +42,7 @@ animation:introHide 1.2s ease forwards;
 animation-delay:3.8s;
 }
 
-.intro a{
+.intro-logo-wrap{
 display:inline-block;
 position:relative;
 z-index:2;
@@ -51,15 +51,16 @@ z-index:2;
 .intro-logo{
 width:210px;
 max-width:58vw;
-filter:drop-shadow(0 0 28px rgba(0,180,255,0.65));
 cursor:pointer;
-animation:breathe 3s ease-in-out infinite;
 position:relative;
-z-index:2;
+z-index:3;
+filter:drop-shadow(0 0 28px rgba(0,180,255,0.65));
+animation:breathe 3s ease-in-out infinite;
 }
 
 .intro-logo.impact{
-animation:forgeImpact 0.72s cubic-bezier(.17,.89,.32,1.28), breathe 3s ease-in-out infinite 0.72s;
+animation:forgeImpact 0.72s cubic-bezier(.17,.89,.32,1.28),
+breathe 3s ease-in-out infinite 0.72s;
 }
 
 .intro-title{
@@ -67,7 +68,7 @@ margin-top:18px;
 font-size:30px;
 letter-spacing:6px;
 opacity:0;
-font-family:'Orbitron', sans-serif;
+font-family:'Orbitron',sans-serif;
 font-weight:900;
 text-transform:uppercase;
 text-shadow:0 0 18px rgba(0,180,255,0.45);
@@ -98,23 +99,23 @@ height:6px;
 border-radius:50%;
 background:#66eaff;
 opacity:0;
-box-shadow:0 0 16px #66eaff, 0 0 28px rgba(102,234,255,0.8);
+box-shadow:0 0 16px #66eaff,0 0 28px rgba(102,234,255,0.8);
 }
 
 .sparks.active span{
 animation:sparkBurst 0.62s ease-out forwards;
 }
 
-.sparks span:nth-child(1){ --x:95px; --y:-22px; animation-delay:0.00s; }
-.sparks span:nth-child(2){ --x:-88px; --y:-38px; animation-delay:0.02s; }
-.sparks span:nth-child(3){ --x:78px; --y:70px; animation-delay:0.01s; }
-.sparks span:nth-child(4){ --x:-76px; --y:76px; animation-delay:0.03s; }
-.sparks span:nth-child(5){ --x:0px; --y:-105px; animation-delay:0.00s; }
-.sparks span:nth-child(6){ --x:0px; --y:105px; animation-delay:0.04s; }
-.sparks span:nth-child(7){ --x:118px; --y:24px; animation-delay:0.02s; }
-.sparks span:nth-child(8){ --x:-118px; --y:18px; animation-delay:0.01s; }
-.sparks span:nth-child(9){ --x:45px; --y:-100px; animation-delay:0.03s; }
-.sparks span:nth-child(10){ --x:-48px; --y:100px; animation-delay:0.02s; }
+.sparks span:nth-child(1){--x:95px;--y:-22px;}
+.sparks span:nth-child(2){--x:-88px;--y:-38px;}
+.sparks span:nth-child(3){--x:78px;--y:70px;}
+.sparks span:nth-child(4){--x:-76px;--y:76px;}
+.sparks span:nth-child(5){--x:0px;--y:-105px;}
+.sparks span:nth-child(6){--x:0px;--y:105px;}
+.sparks span:nth-child(7){--x:118px;--y:24px;}
+.sparks span:nth-child(8){--x:-118px;--y:18px;}
+.sparks span:nth-child(9){--x:45px;--y:-100px;}
+.sparks span:nth-child(10){--x:-48px;--y:100px;}
 
 @keyframes sparkBurst{
 0%{
@@ -126,50 +127,41 @@ opacity:1;
 }
 100%{
 opacity:0;
-transform:translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(0.15);
+transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) scale(0.15);
 }
 }
 
 /* ANIMATIONS */
 
 @keyframes forgeImpact{
-
 0%{
 transform:scale(1);
 filter:drop-shadow(0 0 18px rgba(0,180,255,0.45));
 }
-
 10%{
 transform:scale(1.38) rotate(-3deg);
 filter:drop-shadow(0 0 120px rgba(0,240,255,1));
 }
-
 18%{
 transform:scale(0.80) rotate(3deg);
 filter:drop-shadow(0 0 70px rgba(0,240,255,0.95));
 }
-
 28%{
 transform:scale(1.16) rotate(-1.5deg);
 }
-
 40%{
 transform:scale(0.92) rotate(1deg);
 }
-
 54%{
 transform:scale(1.08);
 }
-
 68%{
 transform:scale(0.98);
 }
-
 100%{
 transform:scale(1);
 filter:drop-shadow(0 0 28px rgba(0,180,255,0.65));
 }
-
 }
 
 @keyframes breathe{
@@ -193,6 +185,10 @@ to{
 opacity:0;
 visibility:hidden;
 }
+}
+
+@keyframes pageShow{
+to{opacity:1;}
 }
 
 /* TOPBAR */
@@ -236,10 +232,6 @@ animation:pageShow 1.4s ease forwards;
 animation-delay:4.1s;
 }
 
-@keyframes pageShow{
-to{opacity:1;}
-}
-
 .hero{
 min-height:100vh;
 display:flex;
@@ -268,14 +260,14 @@ transform:scale(1.06);
 }
 
 h1{
-font-family:'Orbitron', sans-serif;
+font-family:'Orbitron',sans-serif;
 font-weight:900;
 text-transform:uppercase;
 font-size:clamp(42px,8vw,82px);
 margin-bottom:18px;
 letter-spacing:5px;
 line-height:1.1;
-background:linear-gradient(90deg,#ffffff,#8de2ff,#ffffff);
+background:linear-gradient(90deg,#fff,#8de2ff,#fff);
 -webkit-background-clip:text;
 color:transparent;
 text-shadow:0 0 24px rgba(0,180,255,0.18);
@@ -330,7 +322,7 @@ border:1px solid rgba(255,255,255,0.08);
 .section h2{
 font-size:30px;
 margin-bottom:14px;
-font-family:'Orbitron', sans-serif;
+font-family:'Orbitron',sans-serif;
 letter-spacing:2px;
 }
 
@@ -395,27 +387,25 @@ font-size:36px;
 
 <!-- INTRO -->
 <div class="intro">
-<a href="https://mentallgames.com">
-<img src="Logo.png" alt="Mentall Games Logo" class="intro-logo">
+
+<a href="https://mentallgames.com" class="intro-logo-wrap">
+
 <div class="sparks">
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
+<span></span><span></span><span></span><span></span><span></span>
+<span></span><span></span><span></span><span></span><span></span>
 </div>
+
+<img src="Logo.png" alt="Mentall Games Logo" class="intro-logo">
+
 </a>
+
 <div class="intro-title">MENTALL GAMES</div>
+
 </div>
 
 <audio id="forgeSound" src="hammer.mp3" preload="auto"></audio>
 
-<!-- LANGUAGE -->
+<!-- TOPBAR -->
 <div class="topbar">
 <button class="lang-btn" onclick="setLanguage('tr')">🇹🇷</button>
 <button class="lang-btn" onclick="setLanguage('de')">🇩🇪</button>
@@ -453,7 +443,6 @@ font-size:36px;
 <a href="https://mentallgames.com/kare-kapmaca-privacy/" id="privacyText"></a>
 </p>
 </div>
-
 </section>
 
 <section class="section" id="contact">
@@ -466,8 +455,7 @@ font-size:36px;
 </div>
 
 <script>
-const texts = {
-
+const texts={
 tr:{
 subtitle:"Strateji, karakter ve zekâyla dolu mobil oyunlar geliştiriyoruz.",
 btnGames:"Oyunlar",
@@ -478,7 +466,6 @@ privacyText:"Gizlilik Politikası",
 contactTitle:"İletişim",
 footerText:"© 2026 Mentall Games. Tüm hakları saklıdır."
 },
-
 de:{
 subtitle:"Wir entwickeln Mobile Games voller Strategie, Charakter und cleverer Ideen.",
 btnGames:"Spiele",
@@ -489,7 +476,6 @@ privacyText:"Datenschutz",
 contactTitle:"Kontakt",
 footerText:"© 2026 Mentall Games. Alle Rechte vorbehalten."
 },
-
 en:{
 subtitle:"We craft mobile games filled with strategy, character and clever ideas.",
 btnGames:"Games",
@@ -500,60 +486,53 @@ privacyText:"Privacy Policy",
 contactTitle:"Contact",
 footerText:"© 2026 Mentall Games. All rights reserved."
 }
-
 };
 
 function setLanguage(lang){
-localStorage.setItem("siteLang", lang);
-document.documentElement.lang = lang;
+localStorage.setItem("siteLang",lang);
+document.documentElement.lang=lang;
 
-document.getElementById("subtitle").innerText = texts[lang].subtitle;
-document.getElementById("btnGames").innerText = texts[lang].btnGames;
-document.getElementById("btnContact").innerText = texts[lang].btnContact;
-document.getElementById("gamesTitle").innerText = texts[lang].gamesTitle;
-document.getElementById("gameDesc").innerText = texts[lang].gameDesc;
-document.getElementById("privacyText").innerText = texts[lang].privacyText;
-document.getElementById("contactTitle").innerText = texts[lang].contactTitle;
-document.getElementById("footerText").innerText = texts[lang].footerText;
+document.getElementById("subtitle").innerText=texts[lang].subtitle;
+document.getElementById("btnGames").innerText=texts[lang].btnGames;
+document.getElementById("btnContact").innerText=texts[lang].btnContact;
+document.getElementById("gamesTitle").innerText=texts[lang].gamesTitle;
+document.getElementById("gameDesc").innerText=texts[lang].gameDesc;
+document.getElementById("privacyText").innerText=texts[lang].privacyText;
+document.getElementById("contactTitle").innerText=texts[lang].contactTitle;
+document.getElementById("footerText").innerText=texts[lang].footerText;
 }
 
 function detectLanguage(){
-let saved = localStorage.getItem("siteLang");
+let saved=localStorage.getItem("siteLang");
 
 if(saved){
 setLanguage(saved);
 return;
 }
 
-let userLang = navigator.language.toLowerCase();
+let userLang=navigator.language.toLowerCase();
 
-if(userLang.startsWith("tr")){
-setLanguage("tr");
-}
-else if(userLang.startsWith("de")){
-setLanguage("de");
-}
-else{
-setLanguage("en");
-}
+if(userLang.startsWith("tr")) setLanguage("tr");
+else if(userLang.startsWith("de")) setLanguage("de");
+else setLanguage("en");
 }
 
 detectLanguage();
 
 /* FORGE INTRO */
 
-window.addEventListener("load", function(){
+window.addEventListener("load",function(){
 
 setTimeout(function(){
 
 document.querySelector(".intro-logo").classList.add("impact");
 document.querySelector(".sparks").classList.add("active");
 
-const sound = document.getElementById("forgeSound");
-sound.volume = 0.75;
+const sound=document.getElementById("forgeSound");
+sound.volume=0.75;
 sound.play().catch(function(){});
 
-}, 850);
+},850);
 
 });
 </script>
