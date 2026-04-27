@@ -46,12 +46,16 @@ animation-delay:3.8s;
 display:inline-block;
 }
 
-.intro img{
+.intro-logo{
 width:210px;
 max-width:58vw;
-animation:breathe 3s ease-in-out infinite;
 filter:drop-shadow(0 0 28px rgba(0,180,255,0.65));
 cursor:pointer;
+animation:breathe 3s ease-in-out infinite;
+}
+
+.intro-logo.impact{
+animation:forgeImpact 0.55s ease-out, breathe 3s ease-in-out infinite 0.55s;
 }
 
 .intro-title{
@@ -67,7 +71,26 @@ animation:titleShow 1s ease forwards;
 animation-delay:1.1s;
 }
 
-/* ANIMATIONS */
+@keyframes forgeImpact{
+0%{
+transform:scale(1);
+filter:drop-shadow(0 0 20px rgba(0,180,255,0.5));
+}
+18%{
+transform:scale(1.18) rotate(-1deg);
+filter:drop-shadow(0 0 75px rgba(0,220,255,1));
+}
+32%{
+transform:scale(0.96) rotate(1deg);
+}
+48%{
+transform:scale(1.04) rotate(-0.5deg);
+}
+100%{
+transform:scale(1);
+filter:drop-shadow(0 0 28px rgba(0,180,255,0.65));
+}
+}
 
 @keyframes breathe{
 0%,100%{transform:scale(1);}
@@ -265,7 +288,7 @@ justify-content:center;
 width:135px;
 }
 
-.intro img{
+.intro-logo{
 width:165px;
 }
 
@@ -288,10 +311,12 @@ font-size:36px;
 <!-- INTRO -->
 <div class="intro">
 <a href="https://mentallgames.com">
-<img src="Logo.png" alt="Mentall Games Logo">
+<img src="Logo.png" alt="Mentall Games Logo" class="intro-logo">
 </a>
 <div class="intro-title">MENTALL GAMES</div>
 </div>
+
+<audio id="forgeSound" src="hammer.mp3" preload="auto"></audio>
 
 <!-- LANGUAGE -->
 <div class="topbar">
@@ -417,6 +442,22 @@ setLanguage("en");
 }
 
 detectLanguage();
+
+/* FORGE INTRO */
+
+window.addEventListener("load", function(){
+
+setTimeout(function(){
+
+document.querySelector(".intro-logo").classList.add("impact");
+
+const sound = document.getElementById("forgeSound");
+sound.volume = 0.65;
+sound.play().catch(function(){});
+
+}, 850);
+
+});
 </script>
 
 </body>
