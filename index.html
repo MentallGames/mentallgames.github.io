@@ -45,6 +45,7 @@ animation-delay:3.8s;
 .intro a{
 display:inline-block;
 position:relative;
+z-index:2;
 }
 
 .intro-logo{
@@ -53,6 +54,20 @@ max-width:58vw;
 filter:drop-shadow(0 0 28px rgba(0,180,255,0.65));
 cursor:pointer;
 animation:breathe 3s ease-in-out infinite;
+position:relative;
+z-index:2;
+}
+
+.sparks{
+position:absolute;
+left:50%;
+top:50%;
+width:240px;
+height:240px;
+transform:translate(-50%,-50%);
+pointer-events:none;
+z-index:1;
+filter:blur(0.4px);
 }
 
 .intro-logo.impact{
