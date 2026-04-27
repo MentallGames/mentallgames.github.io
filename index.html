@@ -1,267 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mentall Games</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentall Games</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-    body {
-      min-height: 100vh;
-      font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top, rgba(65, 180, 255, 0.18), transparent 35%),
-        linear-gradient(180deg, #02040a, #080b12 55%, #02040a);
-      color: white;
-      overflow-x: hidden;
-    }
+html{
+scroll-behavior:smooth;
+}
 
-    .intro {
-      position: fixed;
-      inset: 0;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #000;
-      animation: introFade 1.2s ease forwards;
-      animation-delay: 3.2s;
-    }
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:
+radial-gradient(circle at top, rgba(0,180,255,0.18), transparent 35%),
+linear-gradient(180deg,#05070c,#0a1018,#05070c);
+color:white;
+overflow-x:hidden;
+}
 
-    .intro-logo {
-      width: 210px;
-      max-width: 55vw;
-      filter: drop-shadow(0 0 28px rgba(65, 180, 255, 0.55));
-      animation: breathe 3s ease-in-out infinite;
-    }
+.topbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:999;
+display:flex;
+justify-content:flex-end;
+gap:10px;
+padding:14px 18px;
+background:rgba(0,0,0,0.35);
+backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
 
-    @keyframes breathe {
-      0%, 100% {
-        transform: scale(1);
-        filter: drop-shadow(0 0 20px rgba(65, 180, 255, 0.45));
-      }
-      50% {
-        transform: scale(1.08);
-        filter: drop-shadow(0 0 45px rgba(65, 180, 255, 0.9));
-      }
-    }
+.lang-btn{
+border:none;
+cursor:pointer;
+padding:8px 12px;
+border-radius:12px;
+background:rgba(255,255,255,0.07);
+color:white;
+font-size:18px;
+transition:0.25s;
+}
 
-    @keyframes introFade {
-      to {
-        opacity: 0;
-        visibility: hidden;
-      }
-    }
+.lang-btn:hover{
+transform:translateY(-2px);
+background:rgba(255,255,255,0.14);
+}
 
-    .page {
-      min-height: 100vh;
-      padding: 36px 22px;
-      opacity: 0;
-      animation: pageReveal 1.3s ease forwards;
-      animation-delay: 3.6s;
-    }
+.hero{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:90px 20px 40px;
+}
 
-    @keyframes pageReveal {
-      to {
-        opacity: 1;
-      }
-    }
+.logo{
+width:160px;
+max-width:45vw;
+margin-bottom:25px;
+animation:breathe 4s ease-in-out infinite;
+filter:drop-shadow(0 0 25px rgba(0,180,255,0.55));
+}
 
-    .hero {
-      max-width: 980px;
-      margin: 0 auto;
-      min-height: 82vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
+@keyframes breathe{
+0%,100%{
+transform:scale(1);
+}
+50%{
+transform:scale(1.08);
+}
+}
 
-    .hero-logo {
-      width: 150px;
-      margin-bottom: 28px;
-      animation: breathe 4.5s ease-in-out infinite;
-    }
+h1{
+font-size:clamp(42px,8vw,82px);
+letter-spacing:-2px;
+margin-bottom:18px;
+background:linear-gradient(90deg,#ffffff,#7edcff,#ffffff);
+-webkit-background-clip:text;
+color:transparent;
+}
 
-    .badge {
-      display: inline-block;
-      padding: 8px 16px;
-      margin-bottom: 18px;
-      border: 1px solid rgba(90, 200, 255, 0.35);
-      border-radius: 999px;
-      color: #8fdcff;
-      background: rgba(70, 180, 255, 0.08);
-      font-size: 13px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
+.subtitle{
+font-size:clamp(18px,3vw,24px);
+color:#c3d3e0;
+max-width:700px;
+line-height:1.6;
+margin-bottom:32px;
+}
 
-    h1 {
-      font-size: clamp(44px, 8vw, 92px);
-      letter-spacing: -3px;
-      line-height: 0.95;
-      margin-bottom: 20px;
-      background: linear-gradient(90deg, #ffffff, #87dfff, #ffffff);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
+.buttons{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+justify-content:center;
+}
 
-    .subtitle {
-      max-width: 680px;
-      color: #b9c7d7;
-      font-size: clamp(17px, 2.5vw, 23px);
-      line-height: 1.6;
-      margin-bottom: 34px;
-    }
+.btn{
+padding:14px 22px;
+border-radius:16px;
+text-decoration:none;
+color:white;
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.1);
+transition:0.25s;
+}
 
-    .buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+.btn:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 25px rgba(0,180,255,0.2);
+}
 
-    .btn {
-      padding: 14px 22px;
-      border-radius: 16px;
-      text-decoration: none;
-      color: white;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.06);
-      backdrop-filter: blur(12px);
-      transition: 0.25s ease;
-    }
+.primary{
+background:linear-gradient(135deg,#14a8ff,#52deff);
+color:#00111d;
+font-weight:bold;
+}
 
-    .btn.primary {
-      background: linear-gradient(135deg, #1aa7ff, #56d5ff);
-      color: #00111d;
-      font-weight: bold;
-      box-shadow: 0 0 35px rgba(54, 190, 255, 0.25);
-    }
+.section{
+max-width:950px;
+margin:0 auto 30px;
+padding:30px 22px;
+border-radius:26px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+}
 
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 35px rgba(65, 180, 255, 0.22);
-    }
+.section h2{
+font-size:30px;
+margin-bottom:14px;
+}
 
-    .section {
-      max-width: 980px;
-      margin: 0 auto 34px;
-      padding: 28px;
-      border-radius: 28px;
-      background: rgba(255,255,255,0.055);
-      border: 1px solid rgba(255,255,255,0.11);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
-    }
+.section p{
+line-height:1.7;
+color:#ccd6e0;
+}
 
-    .section h2 {
-      font-size: 28px;
-      margin-bottom: 12px;
-    }
+.card{
+margin-top:18px;
+padding:22px;
+border-radius:22px;
+background:linear-gradient(135deg,rgba(0,180,255,0.14),rgba(255,255,255,0.03));
+}
 
-    .section p {
-      color: #c5cfda;
-      line-height: 1.7;
-    }
+footer{
+text-align:center;
+padding:35px 20px;
+color:#7d8a98;
+font-size:14px;
+}
 
-    .game-card {
-      margin-top: 18px;
-      padding: 22px;
-      border-radius: 22px;
-      background: linear-gradient(135deg, rgba(45,170,255,0.16), rgba(255,255,255,0.04));
-      border: 1px solid rgba(100,200,255,0.18);
-    }
+a{
+color:#82dfff;
+}
 
-    .game-card h3 {
-      font-size: 24px;
-      margin-bottom: 8px;
-    }
-
-    a {
-      color: #67cfff;
-    }
-
-    footer {
-      text-align: center;
-      color: #6f7d8e;
-      padding: 34px 20px;
-      font-size: 14px;
-    }
-
-    @media (max-width: 600px) {
-      .hero {
-        min-height: 78vh;
-      }
-
-      .hero-logo {
-        width: 118px;
-      }
-
-      .section {
-        padding: 22px;
-        border-radius: 22px;
-      }
-    }
-  </style>
+@media(max-width:600px){
+.topbar{
+justify-content:center;
+}
+.logo{
+width:125px;
+}
+}
+</style>
 </head>
 
 <body>
 
-  <div class="intro">
-    <img src="IMG_20260427_141030.png" alt="Mentall Games Logo" class="intro-logo">
-  </div>
+<div class="topbar">
+<button class="lang-btn" onclick="setLanguage('tr')">🇹🇷</button>
+<button class="lang-btn" onclick="setLanguage('de')">🇩🇪</button>
+<button class="lang-btn" onclick="setLanguage('en')">🇬🇧</button>
+</div>
 
-  <main class="page">
-    <section class="hero">
-      <img src="IMG_20260427_141030.png" alt="Mentall Games Logo" class="hero-logo">
+<section class="hero">
+<img src="logo.png" class="logo">
 
-      <div class="badge">Independent Mobile Game Studio</div>
+<h1>Mentall Games</h1>
 
-      <h1>Mentall Games</h1>
+<p class="subtitle" id="subtitle"></p>
 
-      <p class="subtitle">
-        We craft mobile games with strategy, character, and a little electric brain-spark.
-      </p>
+<div class="buttons">
+<a href="#games" class="btn primary" id="btnGames"></a>
+<a href="#contact" class="btn" id="btnContact"></a>
+</div>
+</section>
 
-      <div class="buttons">
-        <a class="btn primary" href="#games">Explore Games</a>
-        <a class="btn" href="#contact">Contact</a>
-      </div>
-    </section>
+<section class="section" id="games">
+<h2 id="gamesTitle"></h2>
 
-    <section class="section" id="games">
-      <h2>Games</h2>
+<div class="card">
+<h3>Kare Kapmaca</h3>
+<p id="gameDesc"></p>
 
-      <div class="game-card">
-        <h3>Kare Kapmaca</h3>
-        <p>
-          A strategic board game with AI opponents, combo chains, unlockable characters,
-          and a notebook-style visual world.
-        </p>
-        <p style="margin-top:14px;">
-          <a href="https://mentallgames.github.io/kare-kapmaca-privacy/">
-            Privacy Policy
-          </a>
-        </p>
-      </div>
-    </section>
+<p style="margin-top:14px;">
+<a href="https://mentallgames.github.io/kare-kapmaca-privacy/" id="privacyText"></a>
+</p>
+</div>
+</section>
 
-    <section class="section" id="contact">
-      <h2>Contact</h2>
-      <p>Email: muhammedaliozdemir@aol.com</p>
-    </section>
+<section class="section" id="contact">
+<h2 id="contactTitle"></h2>
+<p>Email: muhammedaliozdemir@aol.com</p>
+</section>
 
-    <footer>
-      © 2026 Mentall Games. All rights reserved.
-    </footer>
-  </main>
+<footer id="footerText"></footer>
+
+<script>
+const texts = {
+
+tr:{
+subtitle:"Strateji, karakter ve zekâyla dolu mobil oyunlar üretiyoruz.",
+btnGames:"Oyunlar",
+btnContact:"İletişim",
+gamesTitle:"Oyunlarımız",
+gameDesc:"Yapay zekâ rakipleri, combo sistemi ve defter temalı tasarımı olan stratejik masa oyunu.",
+privacyText:"Gizlilik Politikası",
+contactTitle:"İletişim",
+footerText:"© 2026 Mentall Games. Tüm hakları saklıdır."
+},
+
+de:{
+subtitle:"Wir entwickeln Mobile Games voller Strategie, Charakter und cleverer Ideen.",
+btnGames:"Spiele",
+btnContact:"Kontakt",
+gamesTitle:"Unsere Spiele",
+gameDesc:"Strategisches Brettspiel mit KI-Gegnern, Combo-System und Notizbuch-Stil.",
+privacyText:"Datenschutz",
+contactTitle:"Kontakt",
+footerText:"© 2026 Mentall Games. Alle Rechte vorbehalten."
+},
+
+en:{
+subtitle:"We craft mobile games filled with strategy, character and clever ideas.",
+btnGames:"Games",
+btnContact:"Contact",
+gamesTitle:"Our Games",
+gameDesc:"Strategic board game with AI opponents, combo system and notebook-style visuals.",
+privacyText:"Privacy Policy",
+contactTitle:"Contact",
+footerText:"© 2026 Mentall Games. All rights reserved."
+}
+
+};
+
+function setLanguage(lang){
+
+localStorage.setItem("siteLang", lang);
+
+document.documentElement.lang = lang;
+
+document.getElementById("subtitle").innerText = texts[lang].subtitle;
+document.getElementById("btnGames").innerText = texts[lang].btnGames;
+document.getElementById("btnContact").innerText = texts[lang].btnContact;
+document.getElementById("gamesTitle").innerText = texts[lang].gamesTitle;
+document.getElementById("gameDesc").innerText = texts[lang].gameDesc;
+document.getElementById("privacyText").innerText = texts[lang].privacyText;
+document.getElementById("contactTitle").innerText = texts[lang].contactTitle;
+document.getElementById("footerText").innerText = texts[lang].footerText;
+}
+
+function detectLanguage(){
+
+let saved = localStorage.getItem("siteLang");
+
+if(saved){
+setLanguage(saved);
+return;
+}
+
+let userLang = navigator.language.toLowerCase();
+
+if(userLang.startsWith("tr")){
+setLanguage("tr");
+}
+else if(userLang.startsWith("de")){
+setLanguage("de");
+}
+else{
+setLanguage("en");
+}
+
+}
+
+detectLanguage();
+</script>
 
 </body>
 </html>
