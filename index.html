@@ -27,6 +27,21 @@ color:white;
 overflow-x:hidden;
 }
 
+/* MOBILE TAP FIX */
+
+a,
+button,
+img{
+-webkit-tap-highlight-color:transparent;
+outline:none;
+}
+
+a:focus,
+button:focus,
+img:focus{
+outline:none;
+}
+
 /* INTRO */
 
 .intro{
@@ -45,7 +60,6 @@ animation-delay:3.8s;
 .intro-logo-wrap{
 display:inline-block;
 position:relative;
-z-index:2;
 }
 
 .intro-logo{
@@ -53,14 +67,16 @@ width:210px;
 max-width:58vw;
 cursor:pointer;
 position:relative;
-z-index:3;
 filter:drop-shadow(0 0 28px rgba(0,180,255,0.65));
 animation:breathe 3s ease-in-out infinite;
 }
 
+/* LOGO IMPACT */
+
 .intro-logo.impact{
-animation:forgeImpact 0.72s cubic-bezier(.17,.89,.32,1.28),
-breathe 3s ease-in-out infinite 0.72s;
+animation:
+forgeImpact 0.95s cubic-bezier(.12,.9,.22,1.25),
+breathe 3s ease-in-out infinite 0.95s;
 }
 
 .intro-title{
@@ -72,70 +88,78 @@ font-family:'Orbitron',sans-serif;
 font-weight:900;
 text-transform:uppercase;
 text-shadow:0 0 18px rgba(0,180,255,0.45);
-animation:titleShow 1s ease forwards;
-animation-delay:0.85s;
+animation:titleForge 0.95s cubic-bezier(.12,.9,.22,1.25) forwards;
+animation-delay:0.70s;
 }
 
 /* ANIMATIONS */
 
 @keyframes forgeImpact{
+
 0%{
-transform:scale(1);
+transform:scale(1) rotate(0deg);
 filter:drop-shadow(0 0 18px rgba(0,180,255,0.45));
 }
-10%{
-transform:scale(1.38) rotate(-3deg);
-filter:drop-shadow(0 0 120px rgba(0,240,255,1));
+
+8%{
+transform:scale(1.42) rotate(-3deg);
+filter:drop-shadow(0 0 135px rgba(0,240,255,1));
 }
-18%{
-transform:scale(0.80) rotate(3deg);
-filter:drop-shadow(0 0 70px rgba(0,240,255,0.95));
+
+16%{
+transform:scale(0.74) rotate(3deg);
+filter:drop-shadow(0 0 90px rgba(0,240,255,1));
 }
+
 28%{
-transform:scale(1.16) rotate(-1.5deg);
+transform:scale(1.20) rotate(-1.6deg);
 }
-40%{
-transform:scale(0.92) rotate(1deg);
+
+42%{
+transform:scale(0.90) rotate(1deg);
 }
-54%{
+
+58%{
 transform:scale(1.08);
 }
-68%{
+
+74%{
 transform:scale(0.98);
 }
+
 100%{
 transform:scale(1);
 filter:drop-shadow(0 0 28px rgba(0,180,255,0.65));
 }
+
 }
 
-@keyframes breathe{
-0%,100%{transform:scale(1);}
-50%{transform:scale(1.08);}
-}
-
-@keyframes titleShow{
+@keyframes titleForge{
 
 0%{
 opacity:0;
-transform:scale(0.6);
-filter:blur(6px);
+transform:scale(0.78);
+filter:blur(4px);
 text-shadow:0 0 0 rgba(0,180,255,0);
 }
 
-35%{
+10%{
 opacity:1;
 transform:scale(1.22);
 filter:blur(0px);
-text-shadow:0 0 28px rgba(0,220,255,1);
+text-shadow:0 0 32px rgba(0,230,255,1);
 }
 
-55%{
-transform:scale(0.94);
+28%{
+transform:scale(0.92);
 }
 
-75%{
-transform:scale(1.06);
+46%{
+transform:scale(1.08);
+}
+
+68%{
+transform:scale(0.98);
 }
 
 100%{
@@ -144,6 +168,11 @@ transform:scale(1);
 text-shadow:0 0 18px rgba(0,180,255,0.45);
 }
 
+}
+
+@keyframes breathe{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.08);}
 }
 
 @keyframes introHide{
@@ -330,11 +359,6 @@ width:135px;
 width:165px;
 }
 
-.sparks{
-width:190px;
-height:190px;
-}
-
 .intro-title{
 font-size:22px;
 letter-spacing:4px;
@@ -355,14 +379,7 @@ font-size:36px;
 <div class="intro">
 
 <a href="https://mentallgames.com" class="intro-logo-wrap">
-
-<div class="sparks">
-<span></span><span></span><span></span><span></span><span></span>
-<span></span><span></span><span></span><span></span><span></span>
-</div>
-
 <img src="Logo.png" alt="Mentall Games Logo" class="intro-logo">
-
 </a>
 
 <div class="intro-title">MENTALL GAMES</div>
@@ -494,10 +511,10 @@ setTimeout(function(){
 document.querySelector(".intro-logo").classList.add("impact");
 
 const sound=document.getElementById("forgeSound");
-sound.volume=0.75;
+sound.volume=0.9;
 sound.play().catch(function(){});
 
-},850);
+},700);
 
 });
 </script>
