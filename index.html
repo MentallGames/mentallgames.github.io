@@ -94,8 +94,8 @@ filter:blur(0.4px);
 position:absolute;
 left:50%;
 top:50%;
-width:3px;
-height:3px;
+width:4px;
+height:4px;
 border-radius:50%;
 background:#66eaff;
 opacity:0;
@@ -170,14 +170,35 @@ filter:drop-shadow(0 0 28px rgba(0,180,255,0.65));
 }
 
 @keyframes titleShow{
-from{
+
+0%{
 opacity:0;
-transform:translateY(12px);
+transform:scale(0.6);
+filter:blur(6px);
+text-shadow:0 0 0 rgba(0,180,255,0);
 }
-to{
+
+35%{
 opacity:1;
-transform:translateY(0);
+transform:scale(1.22);
+filter:blur(0px);
+text-shadow:0 0 28px rgba(0,220,255,1);
 }
+
+55%{
+transform:scale(0.94);
+}
+
+75%{
+transform:scale(1.06);
+}
+
+100%{
+opacity:1;
+transform:scale(1);
+text-shadow:0 0 18px rgba(0,180,255,0.45);
+}
+
 }
 
 @keyframes introHide{
