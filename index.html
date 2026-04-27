@@ -76,61 +76,6 @@ animation:titleShow 1s ease forwards;
 animation-delay:0.85s;
 }
 
-/* SPARKS */
-
-.sparks{
-position:absolute;
-left:50%;
-top:50%;
-width:240px;
-height:240px;
-transform:translate(-50%,-50%);
-pointer-events:none;
-z-index:1;
-filter:blur(0.4px);
-}
-
-.sparks span{
-position:absolute;
-left:50%;
-top:50%;
-width:4px;
-height:4px;
-border-radius:50%;
-background:#66eaff;
-opacity:0;
-box-shadow:0 0 16px #66eaff,0 0 16px rgba(102,234,255,0.7);
-}
-
-.sparks.active span{
-animation:sparkBurst 0.62s ease-out forwards;
-}
-
-.sparks span:nth-child(1){--x:95px;--y:-22px;}
-.sparks span:nth-child(2){--x:-88px;--y:-38px;}
-.sparks span:nth-child(3){--x:78px;--y:70px;}
-.sparks span:nth-child(4){--x:-76px;--y:76px;}
-.sparks span:nth-child(5){--x:0px;--y:-105px;}
-.sparks span:nth-child(6){--x:0px;--y:105px;}
-.sparks span:nth-child(7){--x:118px;--y:24px;}
-.sparks span:nth-child(8){--x:-118px;--y:18px;}
-.sparks span:nth-child(9){--x:45px;--y:-100px;}
-.sparks span:nth-child(10){--x:-48px;--y:100px;}
-
-@keyframes sparkBurst{
-0%{
-opacity:1;
-transform:translate(-50%,-50%) scale(1.8);
-}
-55%{
-opacity:1;
-}
-100%{
-opacity:0;
-transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) scale(0.15);
-}
-}
-
 /* ANIMATIONS */
 
 @keyframes forgeImpact{
@@ -547,7 +492,6 @@ window.addEventListener("load",function(){
 setTimeout(function(){
 
 document.querySelector(".intro-logo").classList.add("impact");
-document.querySelector(".sparks").classList.add("active");
 
 const sound=document.getElementById("forgeSound");
 sound.volume=0.75;
