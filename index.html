@@ -25,7 +25,6 @@ a,button,img{-webkit-tap-highlight-color:transparent;outline:none;}
 a:focus,button:focus,img:focus{outline:none;}
 
 /* INTRO */
-
 .intro{
 position:fixed;
 inset:0;
@@ -90,7 +89,6 @@ to{opacity:1;}
 }
 
 /* TOPBAR */
-
 .topbar{
 position:fixed;
 top:0;
@@ -116,7 +114,6 @@ color:white;
 }
 
 /* PAGE */
-
 .page{
 opacity:0;
 animation:pageShow 1.2s ease forwards;
@@ -187,6 +184,13 @@ border-radius:26px;
 background:rgba(255,255,255,0.05);
 }
 
+.card{
+margin-top:18px;
+padding:22px;
+border-radius:22px;
+background:linear-gradient(135deg,rgba(0,180,255,0.14),rgba(255,255,255,0.03));
+}
+
 footer{
 text-align:center;
 padding:34px 20px;
@@ -214,11 +218,8 @@ color:#7f8b98;
 <div class="page">
 
 <section class="hero">
-
 <img src="Logo.png" class="hero-logo">
-
 <h1>Mentall Games</h1>
-
 <p class="subtitle" id="subtitle"></p>
 
 <div class="buttons">
@@ -231,7 +232,6 @@ id="btnPlay"></a>
 
 <a href="#contact" class="btn" id="btnContact"></a>
 </div>
-
 </section>
 
 <section class="section" id="games">
@@ -242,17 +242,16 @@ id="btnPlay"></a>
 <p id="gameDesc"></p>
 
 <div style="margin-top:14px; display:flex; gap:16px; flex-wrap:wrap;">
-    
-    <a href="https://play.google.com/store/apps/details?id=com.mentallgames.karekapmaca"
-       target="_blank"
-       id="playText">
-    </a>
+<a href="https://play.google.com/store/apps/details?id=com.mentallgames.karekapmaca"
+target="_blank"
+id="playText"></a>
 
-    <a href="https://mentallgames.com/kare-kapmaca-privacy/"
-       id="privacyText">
-    </a>
+<a href="https://mentallgames.com/kare-kapmaca-privacy/"
+id="privacyText"></a>
+</div>
 
 </div>
+</section>
 
 <section class="section" id="contact">
 <h2 id="contactTitle"></h2>
@@ -264,9 +263,7 @@ id="btnPlay"></a>
 </div>
 
 <script>
-
 const texts={
-
 tr:{
 subtitle:"Strateji, karakter ve zekâyla dolu mobil oyunlar geliştiriyoruz.",
 btnGames:"Oyunlar",
@@ -308,7 +305,6 @@ privacyText:"Privacy Policy",
 contactTitle:"Contact",
 footerText:"© 2026 Mentall Games. All rights reserved."
 }
-
 };
 
 function setLanguage(lang){
@@ -345,8 +341,6 @@ else setLanguage("en");
 
 detectLanguage();
 
-/* INTRO SOUND */
-
 window.addEventListener("load",function(){
 setTimeout(function(){
 document.querySelector(".intro-logo").classList.add("impact");
@@ -357,7 +351,6 @@ sound.play().catch(function(){});
 
 },650);
 });
-
 </script>
 
 </body>
