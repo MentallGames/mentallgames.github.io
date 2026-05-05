@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +8,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
 
 body{
 font-family:'Inter',Arial,sans-serif;
@@ -21,10 +27,21 @@ color:white;
 overflow-x:hidden;
 }
 
-a,button,img{-webkit-tap-highlight-color:transparent;outline:none;}
-a:focus,button:focus,img:focus{outline:none;}
+a,
+button,
+img{
+-webkit-tap-highlight-color:transparent;
+outline:none;
+}
+
+a:focus,
+button:focus,
+img:focus{
+outline:none;
+}
 
 /* INTRO */
+
 .intro{
 position:fixed;
 inset:0;
@@ -35,12 +52,19 @@ justify-content:center;
 align-items:center;
 z-index:9999;
 animation:introHide 1.2s ease forwards;
-animation-delay:2.4s;
+animation-delay:3.8s;
+}
+
+.intro-logo-wrap{
+display:inline-block;
+position:relative;
 }
 
 .intro-logo{
 width:210px;
 max-width:58vw;
+cursor:pointer;
+position:relative;
 filter:drop-shadow(0 0 28px rgba(0,180,255,0.65));
 animation:breathe 3s ease-in-out infinite;
 }
@@ -58,21 +82,51 @@ opacity:0;
 font-family:'Orbitron',sans-serif;
 font-weight:900;
 text-transform:uppercase;
+text-shadow:0 0 18px rgba(0,180,255,0.45);
 animation:titleShow 1s ease forwards;
-animation-delay:0.9s;
+animation-delay:1.1s;
 }
 
 @keyframes forgeImpact{
-0%{transform:scale(1);}
-10%{transform:scale(1.38) rotate(-3deg);}
-18%{transform:scale(0.80) rotate(3deg);}
-28%{transform:scale(1.16);}
-100%{transform:scale(1);}
+0%{
+transform:scale(1);
+filter:drop-shadow(0 0 18px rgba(0,180,255,0.45));
+}
+10%{
+transform:scale(1.38) rotate(-3deg);
+filter:drop-shadow(0 0 120px rgba(0,240,255,1));
+}
+18%{
+transform:scale(0.80) rotate(3deg);
+filter:drop-shadow(0 0 70px rgba(0,240,255,0.95));
+}
+28%{
+transform:scale(1.16) rotate(-1.5deg);
+}
+40%{
+transform:scale(0.92) rotate(1deg);
+}
+54%{
+transform:scale(1.08);
+}
+68%{
+transform:scale(0.98);
+}
+100%{
+transform:scale(1);
+filter:drop-shadow(0 0 28px rgba(0,180,255,0.65));
+}
 }
 
 @keyframes titleShow{
-from{opacity:0;transform:translateY(12px);}
-to{opacity:1;transform:translateY(0);}
+from{
+opacity:0;
+transform:translateY(12px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
 
 @keyframes breathe{
@@ -81,7 +135,10 @@ to{opacity:1;transform:translateY(0);}
 }
 
 @keyframes introHide{
-to{opacity:0;visibility:hidden;}
+to{
+opacity:0;
+visibility:hidden;
+}
 }
 
 @keyframes pageShow{
@@ -89,6 +146,7 @@ to{opacity:1;}
 }
 
 /* TOPBAR */
+
 .topbar{
 position:fixed;
 top:0;
@@ -101,6 +159,7 @@ padding:14px 18px;
 z-index:100;
 background:rgba(0,0,0,0.35);
 backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
 .lang-btn{
@@ -111,13 +170,20 @@ border-radius:12px;
 font-size:18px;
 background:rgba(255,255,255,0.08);
 color:white;
+transition:0.25s;
+}
+
+.lang-btn:hover{
+transform:translateY(-2px);
+background:rgba(255,255,255,0.16);
 }
 
 /* PAGE */
+
 .page{
 opacity:0;
-animation:pageShow 1.2s ease forwards;
-animation-delay:2.7s;
+animation:pageShow 1.4s ease forwards;
+animation-delay:4.1s;
 }
 
 .hero{
@@ -130,28 +196,43 @@ text-align:center;
 padding:90px 20px 40px;
 }
 
+.hero a{
+display:inline-block;
+}
+
 .hero-logo{
 width:165px;
 margin-bottom:24px;
 animation:breathe 4s ease-in-out infinite;
 filter:drop-shadow(0 0 24px rgba(0,180,255,0.55));
+cursor:pointer;
+transition:0.25s;
+}
+
+.hero-logo:hover{
+transform:scale(1.06);
 }
 
 h1{
 font-family:'Orbitron',sans-serif;
 font-weight:900;
+text-transform:uppercase;
 font-size:clamp(42px,8vw,82px);
 margin-bottom:18px;
+letter-spacing:5px;
+line-height:1.1;
 background:linear-gradient(90deg,#fff,#8de2ff,#fff);
 -webkit-background-clip:text;
 color:transparent;
+text-shadow:0 0 24px rgba(0,180,255,0.18);
 }
 
 .subtitle{
 font-size:clamp(18px,3vw,24px);
 color:#c6d6e3;
-margin-bottom:32px;
+line-height:1.6;
 max-width:720px;
+margin-bottom:32px;
 }
 
 .buttons{
@@ -168,6 +249,13 @@ text-decoration:none;
 color:white;
 background:rgba(255,255,255,0.08);
 border:1px solid rgba(255,255,255,0.12);
+transition:0.25s;
+font-weight:600;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+box-shadow:0 12px 25px rgba(0,180,255,0.18);
 }
 
 .primary{
@@ -182,6 +270,19 @@ margin:0 auto 30px;
 padding:30px 22px;
 border-radius:26px;
 background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.section h2{
+font-size:30px;
+margin-bottom:14px;
+font-family:'Orbitron',sans-serif;
+letter-spacing:2px;
+}
+
+.section p{
+line-height:1.7;
+color:#ccd7e1;
 }
 
 .card{
@@ -191,49 +292,91 @@ border-radius:22px;
 background:linear-gradient(135deg,rgba(0,180,255,0.14),rgba(255,255,255,0.03));
 }
 
+.card h3{
+font-size:24px;
+margin-bottom:8px;
+}
+
 footer{
 text-align:center;
 padding:34px 20px;
 font-size:14px;
 color:#7f8b98;
 }
+
+a{
+color:#84e3ff;
+text-decoration:none;
+}
+
+@media(max-width:600px){
+
+.topbar{
+justify-content:center;
+}
+
+.hero-logo{
+width:135px;
+}
+
+.intro-logo{
+width:165px;
+}
+
+.intro-title{
+font-size:22px;
+letter-spacing:4px;
+}
+
+h1{
+letter-spacing:2px;
+font-size:36px;
+}
+
+}
 </style>
 </head>
 
 <body>
 
+<!-- INTRO -->
 <div class="intro">
-<img src="Logo.png" class="intro-logo">
+
+<a href="https://mentallgames.com" class="intro-logo-wrap">
+<img src="Logo.png" alt="Mentall Games Logo" class="intro-logo">
+</a>
+
 <div class="intro-title">MENTALL GAMES</div>
+
 </div>
 
 <audio id="forgeSound" src="hammer.mp3" preload="auto"></audio>
 
+<!-- TOPBAR -->
 <div class="topbar">
 <button class="lang-btn" onclick="setLanguage('tr')">🇹🇷</button>
 <button class="lang-btn" onclick="setLanguage('de')">🇩🇪</button>
 <button class="lang-btn" onclick="setLanguage('en')">🇬🇧</button>
 </div>
 
+<!-- PAGE -->
 <div class="page">
 
 <section class="hero">
-<a href="https://play.google.com/store/apps/details?id=com.mentallgames.karekapmaca" target="_blank">
-    <img src="Logo.png" class="hero-logo">
+
+<a href="https://mentallgames.com">
+<img src="Logo.png" class="hero-logo" alt="Mentall Games Logo">
 </a>
+
 <h1>Mentall Games</h1>
+
 <p class="subtitle" id="subtitle"></p>
 
 <div class="buttons">
 <a href="#games" class="btn primary" id="btnGames"></a>
-
-<a href="https://play.google.com/store/apps/details?id=com.mentallgames.karekapmaca"
-class="btn primary"
-target="_blank"
-id="btnPlay"></a>
-
 <a href="#contact" class="btn" id="btnContact"></a>
 </div>
+
 </section>
 
 <section class="section" id="games">
@@ -243,15 +386,9 @@ id="btnPlay"></a>
 <h3 id="gameTitle"></h3>
 <p id="gameDesc"></p>
 
-<div style="margin-top:14px; display:flex; gap:16px; flex-wrap:wrap;">
-<a href="https://play.google.com/store/apps/details?id=com.mentallgames.karekapmaca"
-target="_blank"
-id="playText"></a>
-
-<a href="https://mentallgames.com/kare-kapmaca-privacy/"
-id="privacyText"></a>
-</div>
-
+<p style="margin-top:14px;">
+<a href="https://mentallgames.com/kare-kapmaca-privacy/" id="privacyText"></a>
+</p>
 </div>
 </section>
 
@@ -269,12 +406,10 @@ const texts={
 tr:{
 subtitle:"Strateji, karakter ve zekâyla dolu mobil oyunlar geliştiriyoruz.",
 btnGames:"Oyunlar",
-btnPlay:"📲 Google Play",
 btnContact:"İletişim",
 gamesTitle:"Oyunlarımız",
 gameTitle:"Kare Kapmaca",
 gameDesc:"Yapay zekâ rakipleri, combo sistemi ve defter temalı tasarımı olan stratejik masa oyunu.",
-playText:"📲 Google Play'de indir",
 privacyText:"Gizlilik Politikası",
 contactTitle:"İletişim",
 footerText:"© 2026 Mentall Games. Tüm hakları saklıdır."
@@ -283,12 +418,10 @@ footerText:"© 2026 Mentall Games. Tüm hakları saklıdır."
 de:{
 subtitle:"Wir entwickeln Mobile Games voller Strategie, Charakter und cleverer Ideen.",
 btnGames:"Spiele",
-btnPlay:"📲 Google Play",
 btnContact:"Kontakt",
 gamesTitle:"Unsere Spiele",
 gameTitle:"Kästchenkrieg",
 gameDesc:"Strategisches Brettspiel mit KI-Gegnern, Combo-System und Notizbuch-Stil.",
-playText:"📲 Bei Google Play herunterladen",
 privacyText:"Datenschutz",
 contactTitle:"Kontakt",
 footerText:"© 2026 Mentall Games. Alle Rechte vorbehalten."
@@ -297,12 +430,10 @@ footerText:"© 2026 Mentall Games. Alle Rechte vorbehalten."
 en:{
 subtitle:"We craft mobile games filled with strategy, character and clever ideas.",
 btnGames:"Games",
-btnPlay:"📲 Google Play",
 btnContact:"Contact",
 gamesTitle:"Our Games",
 gameTitle:"Dots and Boxes: Box Clash",
 gameDesc:"Strategic board game with AI opponents, combo system and notebook-style visuals.",
-playText:"📲 Download on Google Play",
 privacyText:"Privacy Policy",
 contactTitle:"Contact",
 footerText:"© 2026 Mentall Games. All rights reserved."
@@ -315,12 +446,10 @@ document.documentElement.lang=lang;
 
 document.getElementById("subtitle").innerText=texts[lang].subtitle;
 document.getElementById("btnGames").innerText=texts[lang].btnGames;
-document.getElementById("btnPlay").innerText=texts[lang].btnPlay;
 document.getElementById("btnContact").innerText=texts[lang].btnContact;
 document.getElementById("gamesTitle").innerText=texts[lang].gamesTitle;
 document.getElementById("gameTitle").innerText=texts[lang].gameTitle;
 document.getElementById("gameDesc").innerText=texts[lang].gameDesc;
-document.getElementById("playText").innerText=texts[lang].playText;
 document.getElementById("privacyText").innerText=texts[lang].privacyText;
 document.getElementById("contactTitle").innerText=texts[lang].contactTitle;
 document.getElementById("footerText").innerText=texts[lang].footerText;
@@ -343,18 +472,22 @@ else setLanguage("en");
 
 detectLanguage();
 
+/* INTRO */
+
 window.addEventListener("load",function(){
+
 setTimeout(function(){
+
 document.querySelector(".intro-logo").classList.add("impact");
 
 const sound=document.getElementById("forgeSound");
-sound.volume=0.45;
+sound.volume=0.75;
 sound.play().catch(function(){});
 
-},650);
+},850);
+
 });
 </script>
 
 </body>
 </html>
-```
